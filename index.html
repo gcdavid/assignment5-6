@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 5-6</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h2 class="title">
+          US Dollar to Canadian Dollar <span style="color: aqua">.</span>
+        </h2>
+        <span class="sub-title"
+          >Convert USD to CAD at the real exchange rate</span
+        >
+      </div>
+
+      <div class="converter-wrapper">
+        <div>
+          <span>Amount</span>
+          <div class="converter">
+            <input type="number" class="amount-input" id="usd-input" />
+            <div class="converter-country">
+              <img src="us-flag.jpg" class="flag-img" />
+              <span id="usd">USD</span>
+              <span class="down-btn">&darr;</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="swap-btn" id="swap-btn">&lrarr;</button>
+
+        <div>
+          <span>Converted to</span>
+          <div class="converter">
+            <input type="number" class="amount-input" id="cad-input" />
+            <div class="converter-country">
+              <img src="canada-flag.jpg" class="flag-img" />
+              <span id="cad">CAD</span>
+              <span class="down-btn">&darr;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="convert-btn-container">
+        <button class="convert-btn">Convert</button>
+      </div>
+    </main>
+  </body>
+</html>
