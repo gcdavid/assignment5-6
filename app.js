@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   swapBtn.addEventListener("click", function () {
     // Swap input values based on the current state
+
     if (isUSDToCAD) {
       //swap the value
       let temp = cadInput.value;
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       //swap the country name
     } else {
-      let temp = cadInput.value;
+      let temp = usdInput.value;
       usdInput.value = cadInput.value;
       cadInput.value = temp;
 
@@ -48,18 +49,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function convertUSDToCAD() {
-    let cadAmount = cadInput.value;
-    let usdAmount = usdInput.value;
-    let result;
-    const USDToCADRate = 1.2;
-    const CADToUSDRate = 0.83;
+    const usdValue = parseFloat(usdInput.value);
+    const cadValue = parseFloat(cadInput.value);
 
     if (isUSDToCAD) {
-      cadAmount = parseFloat(usdAmount) * parseFloat(USDToCADRate);
-      cadInput.value = cadAmount.toFixed(2);
+      const convertedCad = usdValue * 1.2;
+      cadInput.value = convertedCad.toFixed(2); // Round to 2 decimal places
+      console.log(`Converted ${usdValue} USD to ${convertedCad} CAD`);
     } else {
-      usdAmount = cadAmount * CADToUSDRate;
-      usdInput.value = usdAmount.toFixed(2); // Round to 2 decimal places
+      const convertedUsd = cadValue / 1.2;
+      usdInput.value = convertedUsd.toFixed(2); // Round to 2 decimal places
+      console.log(`Converted ${cadValue} CAD to ${convertedUsd} USD`);
     }
   }
 });
