@@ -55,11 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isUSDToCAD) {
       const convertedCad = usdValue * 1.2;
       cadInput.value = convertedCad.toFixed(2); // Round to 2 decimal places
-      console.log(`Converted ${usdValue} USD to ${convertedCad} CAD`);
     } else {
       const convertedUsd = cadValue / 1.2;
       usdInput.value = convertedUsd.toFixed(2); // Round to 2 decimal places
-      console.log(`Converted ${cadValue} CAD to ${convertedUsd} USD`);
     }
   }
 });
