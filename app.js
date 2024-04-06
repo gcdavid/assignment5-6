@@ -24,11 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
       cadFlag.src = "us-flag.jpg";
       usFlag.src = "canada-flag.jpg";
 
-      let CADText = CAD.textContent;
-      CAD.textContent = USD.textContent;
-      USD.textContent = CADText;
-
       //swap the country name
+      cadSelect.value = "USD";
+      usdSelect.value = "CAD";
     } else {
       let temp = usdInput.value;
       usdInput.value = cadInput.value;
@@ -37,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
       usFlag.src = "us-flag.jpg";
       cadFlag.src = "canada-flag.jpg";
 
-      CAD.textContent = "CAD";
-      USD.textContent = "USD";
+      cadSelect.value = "CAD";
+      usdSelect.value = "USD";
     }
 
     // Toggle the boolean variable
@@ -46,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   usdSelect.addEventListener("change", () => {
+    console.log("chaged");
     if (isUSDToCAD) {
       usFlag.src = "canada-flag.jpg";
       cadFlag.src = "us-flag.jpg";
@@ -60,18 +59,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   cadSelect.addEventListener("change", function () {
-    console.log("first");
+    console.log(isUSDToCAD, "BEFORE");
     if (isUSDToCAD) {
-      usFlag.src = "us-flag.jpg";
-      cadFlag.src = "canada-flag.jpg";
-      cadSelect.selectedIndex = 1; // assuming CAD is the second option in the dropdown
-    } else {
       usFlag.src = "canada-flag.jpg";
       cadFlag.src = "us-flag.jpg";
-      cadSelect.selectedIndex = 0; // assuming USD is the first option in the dropdown
+      usdSelect.value = "CAD"; // assuming CAD is the second option in the dropdown
+    } else {
+      usFlag.src = "us-flag.jpg";
+      cadFlag.src = "canada-flag.jpg";
+      usdSelect.value = "USD"; // assuming USD is the first option in the dropdown
     }
 
     isUSDToCAD = !isUSDToCAD;
+    console.log(isUSDToCAD, "AFTER");
   });
 
   convertBtn.addEventListener("click", () => {
