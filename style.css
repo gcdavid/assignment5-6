@@ -97,6 +97,10 @@ select {
   outline: none;
 }
 
+select#country option {
+  color: black;
+}
+
 @media screen and (max-width: 480px) {
   .container {
     padding-left: 20px;

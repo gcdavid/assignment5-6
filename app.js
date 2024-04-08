@@ -4,8 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const cadInput = document.getElementById("cad-input");
   const usFlag = document.querySelector(".flag-img[src='us-flag.jpg']");
   const cadFlag = document.querySelector(".flag-img[src='canada-flag.jpg']");
-  const CAD = document.getElementById("cad-country");
-  const USD = document.getElementById("usd-country");
   const convertBtn = document.querySelector(".convert-btn");
   const usdSelect = document.querySelector('select[name="usd-country"]');
   const cadSelect = document.querySelector('select[name="cad-country"]');
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   usdSelect.addEventListener("change", () => {
-    console.log("chaged");
     if (isUSDToCAD) {
       usFlag.src = "canada-flag.jpg";
       cadFlag.src = "us-flag.jpg";
@@ -59,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   cadSelect.addEventListener("change", function () {
-    console.log(isUSDToCAD, "BEFORE");
     if (isUSDToCAD) {
       usFlag.src = "canada-flag.jpg";
       cadFlag.src = "us-flag.jpg";
@@ -71,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     isUSDToCAD = !isUSDToCAD;
-    console.log(isUSDToCAD, "AFTER");
   });
 
   convertBtn.addEventListener("click", () => {
@@ -83,10 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const cadValue = parseFloat(cadInput.value);
 
     if (isUSDToCAD) {
-      const convertedCad = usdValue * 1.2;
+      const convertedCad = usdValue * 1.35;
       cadInput.value = convertedCad.toFixed(2); // Round to 2 decimal places
     } else {
-      const convertedUsd = cadValue / 1.2;
+      const convertedUsd = cadValue / 1.35;
       usdInput.value = convertedUsd.toFixed(2); // Round to 2 decimal places
     }
   }
